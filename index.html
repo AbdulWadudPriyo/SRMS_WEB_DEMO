@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Interactive Student Record Management System built around a singly linked list." />
+  <title>Student Record Management System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="ambient ambient-a"></div>
+  <div class="ambient ambient-b"></div>
+
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-mark"><span>SR</span></div>
+        <div>
+          <strong>Student Record</strong>
+          <small>Linked List Lab</small>
+        </div>
+      </div>
+
+      <nav class="side-nav">
+        <a href="#dashboard" class="nav-item active">
+          <span class="nav-icon">⌂</span><span>Dashboard</span>
+        </a>
+        <a href="#visualizer" class="nav-item">
+          <span class="nav-icon">↳</span><span>Visualizer</span>
+        </a>
+        <a href="#records" class="nav-item">
+          <span class="nav-icon">▤</span><span>Records</span>
+        </a>
+        <a href="#complexity" class="nav-item">
+          <span class="nav-icon">◒</span><span>Complexity</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="project-note">
+          <span class="note-dot"></span>
+          <div>
+            <strong>2024 Data Structures</strong>
+            <small>Interactive web demo</small>
+          </div>
+        </div>
+        <a class="github-link" href="https://github.com/AbdulWadudPriyo/Student-Record-Management-System" target="_blank" rel="noreferrer">
+          <span>↗</span> View Original GitHub
+        </a>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu">☰</button>
+        <div class="breadcrumb">
+          <span>Projects</span><b>/</b><strong>Student Record Management</strong>
+        </div>
+        <div class="top-actions">
+          <button class="icon-btn" id="themeToggle" title="Toggle theme">☼</button>
+          <button class="reset-btn" id="resetDemo"><span>↻</span> Reset Demo</button>
+        </div>
+      </header>
+
+      <section class="hero" id="dashboard">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="pulse"></span> Interactive Data Structure Demo</div>
+          <h1>Student records,<br><span>visualized as a Linked List.</span></h1>
+          <p>Explore insertion, searching and deletion through a responsive visual representation of a singly linked list.</p>
+          <div class="hero-actions">
+            <a href="#visualizer" class="primary-btn">Explore Visualizer <span>↓</span></a>
+            <a href="https://github.com/AbdulWadudPriyo/Student-Record-Management-System" target="_blank" rel="noreferrer" class="secondary-btn">Source Code ↗</a>
+          </div>
+        </div>
+        <div class="hero-art">
+          <div class="hero-orbit orbit-1"></div>
+          <div class="hero-orbit orbit-2"></div>
+          <div class="hero-node node-one"><strong>101</strong><small>Wadud</small></div>
+          <div class="hero-node node-two"><strong>105</strong><small>Sakib</small></div>
+          <div class="hero-node node-three"><strong>110</strong><small>Tawhid</small></div>
+          <div class="hero-line line-one"></div>
+          <div class="hero-line line-two"></div>
+          <div class="hero-caption">HEAD → NODE → NODE → NULL</div>
+        </div>
+      </section>
+
+      <section class="stats-grid">
+        <article class="stat-card">
+          <div class="stat-top"><span>Total Records</span><span class="stat-icon">#</span></div>
+          <div class="stat-value" id="statTotal">0</div>
+          <div class="stat-sub">Current nodes in memory</div>
+        </article>
+        <article class="stat-card">
+          <div class="stat-top"><span>Data Structure</span><span class="stat-icon">↳</span></div>
+          <div class="stat-value text-stat">Singly Linked List</div>
+          <div class="stat-sub">Pointer-based sequential structure</div>
+        </article>
+        <article class="stat-card">
+          <div class="stat-top"><span>Search</span><span class="stat-icon">⌕</span></div>
+          <div class="stat-value">O(n)</div>
+          <div class="stat-sub">Sequential traversal</div>
+        </article>
+        <article class="stat-card">
+          <div class="stat-top"><span>Insert</span><span class="stat-icon">＋</span></div>
+          <div class="stat-value">O(n)</div>
+          <div class="stat-sub">Sorted insertion by roll</div>
+        </article>
+      </section>
+
+      <section class="workspace" id="visualizer">
+        <div class="section-heading">
+          <div>
+            <span class="section-kicker">LIVE PLAYGROUND</span>
+            <h2>Linked List Visualizer</h2>
+          </div>
+          <div class="status-pill"><span class="pulse"></span> Live</div>
+        </div>
+
+        <div class="control-grid">
+          <form class="panel" id="addForm">
+            <div class="panel-heading">
+              <div><span class="panel-icon add">＋</span><div><h3>Add Student</h3><p>Insert into sorted position</p></div></div>
+            </div>
+            <div class="field-grid">
+              <label>
+                <span>Student Name</span>
+                <input id="nameInput" type="text" placeholder="e.g. Nayeem Hasan" required maxlength="40">
+              </label>
+              <label>
+                <span>Roll Number</span>
+                <input id="rollInput" type="number" placeholder="e.g. 108" min="1" max="999999" required>
+              </label>
+              <label>
+                <span>Course</span>
+                <input id="courseInput" type="text" placeholder="e.g. CSE 210" required maxlength="30">
+              </label>
+              <label>
+                <span>Total Marks</span>
+                <input id="marksInput" type="number" placeholder="e.g. 86" min="0" max="100" required>
+              </label>
+            </div>
+            <button class="primary-btn wide" type="submit">Add to Linked List <span>→</span></button>
+          </form>
+
+          <div class="panel">
+            <div class="panel-heading">
+              <div><span class="panel-icon search">⌕</span><div><h3>Search Record</h3><p>Watch traversal happen</p></div></div>
+            </div>
+            <div class="search-row">
+              <input id="searchInput" type="number" min="1" placeholder="Enter roll number">
+              <button class="secondary-btn" id="searchBtn">Traverse <span>→</span></button>
+            </div>
+            <div class="search-feedback" id="searchFeedback">
+              <div class="feedback-icon">i</div>
+              <div><strong>Ready to traverse</strong><span>Search a roll number to highlight each visited node.</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel visualizer-panel">
+          <div class="panel-heading list-heading">
+            <div><span class="panel-icon list">↳</span><div><h3>Live Structure</h3><p>Nodes are sorted by roll number</p></div></div>
+            <div class="legend">
+              <span><i class="legend-dot normal"></i> Normal</span>
+              <span><i class="legend-dot visit"></i> Traversing</span>
+              <span><i class="legend-dot found"></i> Match</span>
+            </div>
+          </div>
+
+          <div class="linked-list-stage" id="linkedListStage">
+            <div class="empty-state" id="emptyState">
+              <div class="empty-icon">∅</div>
+              <strong>Your linked list is empty</strong>
+              <span>Add a student to create the first node.</span>
+            </div>
+            <div class="list-scroll" id="listScroll"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="records-section" id="records">
+        <div class="section-heading">
+          <div>
+            <span class="section-kicker">RECORDS</span>
+            <h2>Student Directory</h2>
+          </div>
+          <div class="record-count" id="recordCount">0 records</div>
+        </div>
+
+        <div class="table-panel panel">
+          <div class="table-toolbar">
+            <div class="table-search">
+              <span>⌕</span><input id="tableSearch" type="text" placeholder="Filter by name, roll, or course">
+            </div>
+            <span class="saved-badge">● Auto-saved locally</span>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>ROLL</th><th>STUDENT</th><th>COURSE</th><th>MARKS</th><th>ACTION</th></tr></thead>
+              <tbody id="recordTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="complexity-section" id="complexity">
+        <div class="section-heading">
+          <div>
+            <span class="section-kicker">ALGORITHM NOTES</span>
+            <h2>Time Complexity</h2>
+          </div>
+        </div>
+        <div class="complexity-grid">
+          <article class="complexity-card">
+            <div class="complexity-top"><span>01</span><b>Insert</b></div>
+            <div class="complexity-big">O(n)</div>
+            <p>Traverse until the correct roll-number position is found, then connect the new node.</p>
+            <div class="complexity-bar"><span style="width:72%"></span></div>
+          </article>
+          <article class="complexity-card">
+            <div class="complexity-top"><span>02</span><b>Search</b></div>
+            <div class="complexity-big">O(n)</div>
+            <p>Visit nodes sequentially from HEAD until the target roll number is found.</p>
+            <div class="complexity-bar"><span style="width:72%"></span></div>
+          </article>
+          <article class="complexity-card">
+            <div class="complexity-top"><span>03</span><b>Delete</b></div>
+            <div class="complexity-big">O(n)</div>
+            <p>Find the target node and bypass it by updating the previous node's next link.</p>
+            <div class="complexity-bar"><span style="width:72%"></span></div>
+          </article>
+          <article class="complexity-card accent-card">
+            <div class="complexity-top"><span>04</span><b>Space</b></div>
+            <div class="complexity-big">O(n)</div>
+            <p>Each student requires one node, so memory grows linearly with the records.</p>
+            <div class="complexity-bar"><span style="width:72%"></span></div>
+          </article>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <span>Student Record Management System</span>
+        <span>Built as an interactive 2024 Data Structures project</span>
+      </footer>
+    </main>
+  </div>
+
+  <div class="toast-container" id="toastContainer"></div>
+  <script src="js/app.js"></script>
+</body>
+</html>
